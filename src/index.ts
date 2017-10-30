@@ -22,7 +22,6 @@ async function poll() {
 
   for (let item of results) {
     let text = item.url;
-    if (item.mapLink) { text += `\n${item.img}\n${item.mapLink}`; }
 
     console.log('About to post: ' + text);
     await slack.chat.postMessage({ channel , text });
