@@ -1,5 +1,6 @@
 import * as fs from 'fs';
 import { expect } from 'chai';
+import * as LRU from 'lru-cache';
 
 import './support';
 
@@ -27,13 +28,14 @@ describe('the parser', () => {
   });
 });
 
+// tslint:disable-next-line:max-line-length
 const rssFeed = 'https://sfbay.craigslist.org/search/apa?availabilityMode=0&bundleDuplicates=1&format=rss&max_price=6000&min_bedrooms=3&postal=94107&search_distance=2';
 
 describe('integration test', function() {
   this.timeout(30 * 1000);
 
   it('doesnt explode', async () => {
-    let results = await processLinks(rssFeed, new Set());
+    let results = await processLinks(rssFeed, new LRU());
     results.forEach(x => console.log(`${x.url} - ${x.mapLink}(${x.coords})`));
   });
 });

@@ -1,5 +1,6 @@
 import * as cheerio from 'cheerio';
 import axios from 'axios';
+import * as LRU from 'lru-cache';
 
 import { asyncMap } from '../src/promise-array';
 
@@ -45,16 +46,18 @@ export interface Listing {
   mapLink: string | null;
 }
 
-export async function processLinks(rssFeed: string, alreadySeen: Set<string>): Promise<Listing[]> {
+export async function processLinks(rssFeed: string, alreadySeen: LRU.Cache<string, boolean>, initialPoll = false): Promise<Listing[]> {
   let rss = (await axios.get(rssFeed)).data;
   let links = getLinksFromXML(rss);
 
   links = links.filter(x => {
     if (alreadySeen.has(x)) { return false; }
 
-    alreadySeen.add(x);
+    alreadySeen.set(x, true);
     return true;
   });
+
+  if (initialPoll) { return []; }
 
   let results = await asyncMap(links, async l => {
     let latlng = screenScrapeCoordinatesFromCraigslistHtml((await axios.get(l)).data);
