@@ -1,0 +1,49 @@
+{
+  "name": "cl-apartment-finder",
+  "version": "0.0.1",
+  "description": "Find an apartment!",
+  "scripts": {
+    "compile": "tsc",
+    "prepublish": "npm run compile",
+    "lint": "tslint \"src/**/*.ts\" \"test/**/*.ts\"",
+    "test": "mocha --compilers ts:ts-node/register ./test/**/*.ts",
+    "build": "npm-run-all compile lint test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paulcbetts/spawn-rx"
+  },
+  "keywords": [
+    "spawn",
+    "rx"
+  ],
+  "author": "Paul Betts <paul@paulbetts.org>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/paulcbetts/spawn-rx/issues"
+  },
+  "main": "lib/src/index.js",
+  "typings": "lib/src/index.d.ts",
+  "homepage": "https://github.com/paulcbetts/spawn-rx",
+  "dependencies": {
+    "axios": "^0.17.0",
+    "cheerio": "^0.22.0",
+    "debug": "^3.1.0",
+    "rxjs": "^5.5.2",
+    "yargs": "^10.0.3"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.0.4",
+    "@types/chai-as-promised": "^7.1.0",
+    "@types/cheerio": "^0.22.4",
+    "@types/mocha": "^2.2.44",
+    "@types/node": "^8.0.47",
+    "@types/yargs": "^8.0.2",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^4.0.1",
+    "ts-node": "^3.3.0",
+    "tslint": "^5.8.0",
+    "typescript": "^2.5.3"
+  }
+}
