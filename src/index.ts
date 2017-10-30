@@ -44,6 +44,8 @@ const server = micro(router(
   get('/dump', dumpSeenLinks),
 ));
 
+if (!token || !channel) { throw new Error('Set SLACK_TOKEN and SLACK_CHANNEL!'); }
+
 console.log('Building initial results...');
 
 processLinks(rssFeed, linkCache, true)
