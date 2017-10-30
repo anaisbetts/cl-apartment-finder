@@ -1,0 +1,7 @@
+{
+  "name": "cl-apartment-finder",
+  "alias": [ "apartment-finder-pb.now.sh" ],
+  "env": {
+    "NODE_ENV": "production"
+  }
+}
