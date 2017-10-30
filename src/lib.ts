@@ -34,7 +34,7 @@ export async function screenScrapeMapFromCoords(latlng: number[]): Promise<{link
   d(img);
 
   return {
-    img: 'https://google.com/' + $(img).attr('src'),
+    img: 'https://google.com' + $(img).attr('src'),
     link: $(img).parent().attr('href')
   };
 }
