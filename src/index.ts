@@ -26,10 +26,16 @@ async function poll() {
     console.log('About to post: ' + text);
     await slack.chat.postMessage({ channel , text });
     if (item.mapLink) {
-      await delay(3 * 1000);
-      await slack.chat.postMessage({ channel, text: `${item.img}\n${item.mapLink}`});
+      await delay(10 * 1000);   // Slack really sucks
+
+      text = `${item.img}\n${item.mapLink}`;
+      console.log('Maplink: ' + text);
+      await slack.chat.postMessage({ channel, text });
     }
+
+    await delay(10 * 1000);   // Slack sucks
   }
+
   return { ok: true };
 }
 
