@@ -15,7 +15,7 @@ const linkCache: LRU.Cache<string, boolean> = LRU({
 });
 
 // tslint:disable-next-line:max-line-length
-const rssFeed = process.env.RSS_FEED || 'https://sfbay.craigslist.org/search/apa?availabilityMode=0&bundleDuplicates=1&format=rss&hasPic=1&max_price=6000&min_bedrooms=3&postal=94107&search_distance=2';
+const rssFeed = process.env.RSS_FEED || 'https://sfbay.craigslist.org/search/apa?availabilityMode=0&bundleDuplicates=1&format=rss&hasPic=1&max_price=6500&min_bedrooms=3&min_bathrooms=2&postal=94107&search_distance=4';
 
 async function poll() {
   let results = await processLinks(rssFeed, linkCache);
