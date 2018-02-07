@@ -16,9 +16,9 @@ const linkCache: LRU.Cache<string, boolean> = LRU({
 
 const rssFeeds = [
   // tslint:disable-next-line:max-line-length
-  'https://sfbay.craigslist.org/search/apa?availabilityMode=0&bundleDuplicates=1&format=rss&hasPic=1&max_price=6500&min_bedrooms=3&min_bathrooms=2&postal=94107&search_distance=4',
+  'https://sfbay.craigslist.org/search/apa?availabilityMode=0&bundleDuplicates=1&format=rss&hasPic=1&max_price=6500&min_bedrooms=4&min_bathrooms=2&postal=94107&search_distance=4',
   // tslint:disable-next-line:max-line-length
-  'https://sfbay.craigslist.org/search/apa?availabilityMode=0&bundleDuplicates=1&format=rss&hasPic=1&max_price=6500&min_bedrooms=3&min_bathrooms=2&postal=94044&search_distance=4',
+  'https://sfbay.craigslist.org/search/apa?availabilityMode=0&bundleDuplicates=1&format=rss&hasPic=1&max_price=6500&min_bedrooms=4&min_bathrooms=2&postal=94044&search_distance=4',
 ];
 
 async function poll() {
